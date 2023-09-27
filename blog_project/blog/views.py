@@ -38,7 +38,7 @@ class PublicView(generics.ListAPIView):
 
         return queryset
     
-
+# user blog view
 class BlogView(APIView):
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
@@ -65,7 +65,7 @@ class BlogView(APIView):
                 'data' : {},
                 'message' : 'somthing wrong in data'
             },status=status.HTTP_400_BAD_REQUEST)
-
+# Add the blog
     def post(self , request):
         try:
             data = request.data
@@ -89,7 +89,7 @@ class BlogView(APIView):
                 'data' : {},
                 'message' : 'somthing wrong'
             },status=status.HTTP_400_BAD_REQUEST)
-        
+ #update the blog       
     def patch(self , request):
         try:
             data = request.data
@@ -128,7 +128,7 @@ class BlogView(APIView):
                 'data' : {},
                 'message' : 'somthing wrong'
             },status=status.HTTP_400_BAD_REQUEST)
-
+#delete blog
     def delete(self,request):
         try:
             data = request.data
